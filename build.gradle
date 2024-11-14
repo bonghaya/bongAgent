@@ -12,11 +12,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_21
 }
 
-tasks.withType(JavaCompile) {
-    options.forkOptions.javaHome = file(System.getenv("JAVA_HOME"))
-}
-
-
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -32,17 +27,17 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-autoconfigure'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-//    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-//    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-logging'
-//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
-//    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
-// 	implementation 'org.mariadb.jdbc:mariadb-java-client:3.1.4'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+ 	implementation 'org.mariadb.jdbc:mariadb-java-client:3.1.4'
 	implementation 'org.projectlombok:lombok'
 	implementation 'com.jayway.jsonpath:json-path'
 	implementation 'com.google.code.gson:gson:2.8.5'
