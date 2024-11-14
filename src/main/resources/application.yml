@@ -1,0 +1,54 @@
+# 서버 관련 설정
+server:
+  port: 8080  # 서버가 수신할 포트 번호
+  tomcat:
+    max-http-form-post-size: 256MB  # HTTP POST 요청 시 허용되는 최대 폼 데이터 크기
+    max-swallow-size: 256MB  # 요청 본문 최대 크기
+  max-http-request-header-size: 400000  # HTTP 요청 헤더의 최대 크기
+  compression:
+    enabled: true  # 응답 압축 활성화
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript  # 압축할 MIME 타입
+    min-response-size: 2048  # 압축을 적용할 최소 응답 크기 (바이트 단위)
+  servlet:
+    session:
+      timeout: 60m  # 세션 타임아웃 시간 (60분)
+    
+
+# Spring 애플리케이션 설정  
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration	
+  mvc:
+    view:
+      prefix: /WEB-INF/views/ 
+      suffix: .jsp
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    view-names: thymeleaf/* 
+  application:
+    name: bongAgent  # 애플리케이션 이름
+  output:
+    ansi: 
+      enabled: always  # ANSI 색상 출력을 항상 활성화
+  servlet:
+    multipart:
+      maxFileSize: 256MB  # 업로드할 파일의 최대 크기
+      maxRequestSize: 256MB  # 파일 업로드 요청의 최대 크기 (파일 크기 + 기타 폼 데이터)
+      enabled: true  # 멀티파트 파일 업로드 기능 활성화
+  web:
+    resources:
+      static-locations: classpath:/static/  # 정적 리소스의 기본 위치
+      cache:
+        cachecontrol:
+          cache-private: true  # 캐시를 개인화된 것으로 설정 (클라이언트 측에서만 사용 가능)
+          must-revalidate: true  # 캐시된 리소스가 변경된 경우 재검증 필요
+          no-cache: true  # 캐시된 리소스를 사용할 때마다 서버에 변경 여부를 확인
+          max-age: 0  # 캐시된 리소스의 최대 유지 기간 (초 단위)
+
+logging:
+  file:
+    name: logs/bong_agent.log
+
+

@@ -1,21 +1,37 @@
 HELP.md
 .gradle
+.project
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+logs/
+#/src/main/resources/publishing/
+
+### nodejs ###
+/src/main/resources/static/node_modules/
+/src/main/resources/static/package-lock.json
 
 ### STS ###
 .apt_generated
+.apt_generated/
 .classpath
+.classpath/
 .factorypath
+.factorypath/
 .project
+.project/
 .settings
+.settings/
 .springBeans
+.springBeans/
 .sts4-cache
+.sts4-cache/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
+.DS_Store
+.DS_Store/
 
 ### IntelliJ IDEA ###
 .idea
@@ -35,3 +51,5 @@ out/
 
 ### VS Code ###
 .vscode/
+.classpath
+.env
